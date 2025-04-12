@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style type="text/css">
+	.card{
+		color: #fba002;
+		min-width: 100px;
+		max-width: auto;
+		background-color: transparent;
+		border: 2px solid #fba002;
+		display: flex; 
+		justify-content: center; 
+		align-items: center;
+		padding: 10px; 
+		text-decoration: none;
+	}
+	.card:hover{
+		background-color: rgba(225, 196 , 2 , 0.3);
+	}
+</style>
+
+<center>
+	<h1 style="color: #FBA002"> MUTUAL FUNDS </h1>
+	<div class='company-container' style=" width: 90%; height: auto; padding: 10px; display: flex; flex-wrap : wrap; max-width: 90%; justify-content: center; gap: 15px; " >
+		<!-- <div class='card' >
+			<h5>MICROSOFT</h5>
+			<h6>MSFT</h6>
+		</div> -->
+	</div>
+</center>
+
+<script type="text/javascript">
+
+  container = document.querySelector(".company-container")
+
+  fetch("https://api.mfapi.in/mf")
+  .then(response=>response.json())
+  .then(companies=>{
+    for (let i=0; i<=100; i++){
+    container.innerHTML+=`
+      <a class='card' href='http://127.0.0.1:8000/mutualfund/${companies[i]['schemeCode']}' >
+        <h5>${companies[i]['schemeName']}</h5>
+        <h6>${companies[i]['schemeCode']}</h6>
+      </a>
+    `
+    }
+  })
+
+</script>
+
+{% endblock %}

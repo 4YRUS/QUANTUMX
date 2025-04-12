@@ -1,0 +1,263 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style type="text/css">
+	
+
+	#button1{
+		background-color: transparent;
+		border: 2px solid #fab002;
+		color: #fab002;
+		height: 50px;
+		width: 100px;
+		border-radius: 5px;
+		margin-top: 40px;
+	}
+	#button1:hover{
+		background-color: rbga(225,196,2,0.3);
+
+	}
+	select{
+		background-color: transparent;
+		border: 2px solid #fab002;
+		color: #fab002;
+		text-align: center;
+		height: 50px; border-radius: 5px;
+		width: 200px; 
+	}
+	select:focus{
+		outline: none;
+	}
+	h4{
+		color: #fab002;
+	}
+	option{
+		background-color: transparent;
+	}
+	th{
+		
+		text-align: center;
+		color : #fba002;
+		padding: 3px;
+		border-bottom: 2px solid #fba002;
+		
+	}
+	td{
+		text-align: center;
+		color : #fba002;
+		padding : 5px;
+		border-bottom: 2px solid rgba(225, 196, 2, 0.3);
+	}
+	td:hover{
+		background-color: rgba(225, 196, 2, 0.3);
+	}
+</style>
+
+<center>
+
+<h1 style="color: #fba002">EXCHANGE</h1>
+
+<div id="currency_container" style="display: flex; justify-content: space-around; align-items: center;">
+	<div style="display: flex; flex-direction: column;">
+		<h4>FROM</h4>
+	<select id="currency1" name="currency">
+	  <option value="USD">US Dollar</option>
+	  <option value="EUR">Euro</option>
+	  <option value="JPY">Japanese Yen</option>
+	  <option value="GBP">British Pound</option>
+	  <option value="AUD">Australian Dollar</option>
+	  <option value="CAD">Canadian Dollar</option>
+	  <option value="CHF">Swiss Franc</option>
+	  <option value="CNY">Chinese Yuan</option>
+	  <option value="INR">Indian Rupee</option>
+	  <option value="BRL">Brazilian Real</option>
+	  <option value="RUB">Russian Ruble</option>
+	  <option value="ZAR">South African Rand</option>
+	  <option value="SGD">Singapore Dollar</option>
+	  <option value="HKD">Hong Kong Dollar</option>
+	  <option value="KRW">South Korean Won</option>
+	  <option value="MXN">Mexican Peso</option>
+	  <option value="NZD">New Zealand Dollar</option>
+	  <option value="SEK">Swedish Krona</option>
+	  <option value="NOK">Norwegian Krone</option>
+	  <option value="DKK">Danish Krone</option>
+	  <option value="TRY">Turkish Lira</option>
+	  <option value="AED">UAE Dirham</option>
+	  <option value="SAR">Saudi Riyal</option>
+	  <option value="MYR">Malaysian Ringgit</option>
+	  <option value="THB">Thai Baht</option>
+	  <option value="IDR">Indonesian Rupiah</option>
+	  <option value="PHP">Philippine Peso</option>
+	  <option value="VND">Vietnamese Dong</option>
+	  <option value="EGP">Egyptian Pound</option>
+	  <option value="PKR">Pakistani Rupee</option>
+	  <option value="BDT">Bangladeshi Taka</option>
+	  <option value="NGN">Nigerian Naira</option>
+	  <option value="KZT">Kazakhstani Tenge</option>
+	  <option value="PLN">Polish Zloty</option>
+	  <option value="CZK">Czech Koruna</option>
+	  <option value="HUF">Hungarian Forint</option>
+	</select>
+
+	</div>
+
+	<button id="button1">GET DATA</button>
+
+	<div style="display: flex; flex-direction: column;">
+		<h4>TO</h4>
+	<select id="currency2" name="currency">
+	  <option value="USD">US Dollar</option>
+	  <option value="EUR">Euro</option>
+	  <option value="JPY">Japanese Yen</option>
+	  <option value="GBP">British Pound</option>
+	  <option value="AUD">Australian Dollar</option>
+	  <option value="CAD">Canadian Dollar</option>
+	  <option value="CHF">Swiss Franc</option>
+	  <option value="CNY">Chinese Yuan</option>
+	  <option value="INR">Indian Rupee</option>
+	  <option value="BRL">Brazilian Real</option>
+	  <option value="RUB">Russian Ruble</option>
+	  <option value="ZAR">South African Rand</option>
+	  <option value="SGD">Singapore Dollar</option>
+	  <option value="HKD">Hong Kong Dollar</option>
+	  <option value="KRW">South Korean Won</option>
+	  <option value="MXN">Mexican Peso</option>
+	  <option value="NZD">New Zealand Dollar</option>
+	  <option value="SEK">Swedish Krona</option>
+	  <option value="NOK">Norwegian Krone</option>
+	  <option value="DKK">Danish Krone</option>
+	  <option value="TRY">Turkish Lira</option>
+	  <option value="AED">UAE Dirham</option>
+	  <option value="SAR">Saudi Riyal</option>
+	  <option value="MYR">Malaysian Ringgit</option>
+	  <option value="THB">Thai Baht</option>
+	  <option value="IDR">Indonesian Rupiah</option>
+	  <option value="PHP">Philippine Peso</option>
+	  <option value="VND">Vietnamese Dong</option>
+	  <option value="EGP">Egyptian Pound</option>
+	  <option value="PKR">Pakistani Rupee</option>
+	  <option value="BDT">Bangladeshi Taka</option>
+	  <option value="NGN">Nigerian Naira</option>
+	  <option value="KZT">Kazakhstani Tenge</option>
+	  <option value="PLN">Polish Zloty</option>
+	  <option value="CZK">Czech Koruna</option>
+	  <option value="HUF">Hungarian Forint</option>
+	</select>
+
+	</div>
+</div>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<div id="matrixplot" style="width: 90%; margin: 20px; background-color: transparent; "></div>
+
+<div style="border: 2px solid #fba002; width: 90%;">
+	<table class="" style=" width: 100%; background-color: #313b2f" >
+	   <thead>
+		    <tr >
+		      <th scope="col">DATE</th>
+		      <th scope="col">OPEN</th>
+		      <th scope="col">HIGH</th>
+		      <th scope="col">LOW</th>
+		      <th scope="col">CLOSE</th>
+		      <th scope="col">VOLUME</th>
+		    </tr>
+	  </thead>
+	  <tbody class='matrix'>
+
+	    <!-- <tr>
+	      <td scope="row">1</td>
+	      <td>Mark</td>
+	      <td>Otto</td>
+	      <td>@mdo</td>
+	      <td>@mdo</td>
+	      <td>@mdo</td>
+	    </tr> -->
+	    
+	  </tbody>
+	</table>
+</div>
+
+</center>
+
+<script type="text/javascript">
+	
+	button1 = document.querySelector("#button1")
+	currency1 = document.querySelector("#currency1")
+	currency2 = document.querySelector("#currency2")
+	console.log(currency1,currency2)
+	button1.addEventListener("click",e=>{
+		let from=currency1.value
+		let to=currency2.value
+		matrix = document.querySelector(".matrix");
+	
+
+	
+	api = "demo";
+	days = [];
+	value = [];
+
+	fetch(`https://www.alphavantage.co/query?function=FX_DAILY&from_symbol=${from}&to_symbol=${to}&apikey=${api}`)
+	  .then(response => response.json())
+	  .then(values => {
+	    console.log(values);
+	    data = values['Time Series FX (Daily)'];
+
+	    for (let date in data) {
+	      days.push(date);
+	      value.push(parseFloat(data[date]['4. close']));
+
+	      matrix.innerHTML += `
+	        <tr>
+	          <td scope="row">${date}</td>
+	          <td>${data[date]['1. open']}</td>
+	          <td>${data[date]['2. high']}</td>
+	          <td>${data[date]['3. low']}</td>
+	          <td>${data[date]['4. close']}</td>
+	          <td>${data[date]['5. volume']}</td>
+	        </tr>`;
+	    }
+
+
+	    plot();
+	  });
+	})
+
+	function plot() {
+	  console.log(days);
+	  console.log(value);
+
+
+	  const trace = {
+	    x: days,
+	    y: value,
+	    mode: 'lines+markers',
+	    type: 'scatter',
+	    name: 'Close Price',
+	    line: {
+	      color: '#fba002',
+	      width: 2
+	    },
+	    marker: {
+	      color: 'orange',
+	      size: 6
+	    }
+	  };
+
+	  const layout = {
+	    title: 'Date vs Value',
+	    xaxis: { title: 'Date', showgrid: true },
+	    yaxis: { title: 'Value', showgrid: true },
+	    plot_bgcolor: '#FFFFFF',
+	    paper_bgcolor: '#FFFFFF'
+	  };
+
+	  Plotly.newPlot('matrixplot', [trace], layout);
+	}
+
+	
+
+</script>
+
+
+{% endblock %}

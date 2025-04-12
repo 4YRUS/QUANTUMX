@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<style type="text/css">
+	
+</style>
+
+<center>
+
+<br>
+<u style="color: #fba002;" ><h1 class='company-symbol' style="color: #fba002">{{symbol}}</h1></u>
+<br>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<div id="matrixplot" style="width: 90%; margin: 20px; background-color: transparent; "></div>
+
+</center>
+
+<script type="text/javascript">
+
+	function plot() {
+	  console.log(days);
+	  console.log(value);
+
+
+	  const trace = {
+	    x: days,
+	    y: value,
+	    mode: 'lines+markers',
+	    type: 'scatter',
+	    name: 'Close Price',
+	    line: {
+	      color: '#fba002',
+	      width: 2
+	    },
+	    marker: {
+	      color: 'orange',
+	      size: 6
+	    }
+	  };
+
+	  const layout = {
+	    title: 'Date vs Value',
+	    xaxis: { title: 'Date', showgrid: true },
+	    yaxis: { title: 'Value', showgrid: true },
+	    plot_bgcolor: '#FFFFFF',
+	    paper_bgcolor: '#FFFFFF'
+	  };
+
+	  Plotly.newPlot('matrixplot', [trace], layout);
+	}
+
+	
+	heading = document.querySelector(".company-symbol");
+
+	
+
+	symbol = heading.innerText
+	days = [];
+	value = [];
+
+	fetch(`https://api.mfapi.in/mf/${symbol}`)
+	  .then(response => response.json())
+	  .then(values => {
+	    console.log(values);
+	    heading.innerText=values['meta']['scheme_name']
+	    data = values['data'];
+
+	    for (let i=0; i<200;i++) {
+	    	list1 = data[i]['date'].split('-')
+	    	list1.reverse()
+	    	list1 = list1.join('-')
+	      days.push(list1);
+	      value.push(parseFloat(data[i]['nav']));
+	    }
+
+	    plot();
+	  });
+
+	
+</script>
+
+
+{% endblock %}

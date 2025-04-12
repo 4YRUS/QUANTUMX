@@ -1,0 +1,137 @@
+
+<style type="text/css">
+	
+	#button123:hover{
+		background-color: rgba(225, 197, 2, 0.3);
+	}
+
+	.message1, .message2 {
+	  color: #fba002;
+	  display: inline-block;
+	  min-height: 50px;
+	  max-width: 75%;
+	  height: auto;
+	  border: 2px solid #fba002;
+	  display: flex;
+	  align-items: center;
+	  justify-content: left;
+	  padding: 10px;
+	  border-radius: 10px;
+	  margin-bottom: 10px;
+	  background-color: rgba(225, 196, 2, 0.2);
+	}
+
+	.message2{
+		background-color: transparent;
+	}
+
+	.search-bar-chat:focus{
+		outline: none;
+	}
+
+
+</style>
+<div class='chatbot' style="padding-top: 4px; width: 50px; height: 50px; border-radius: 50%; background-color: rgba(225,196,2,0.3); position: fixed; top: 95%; left: 97.5%; transform: translate(-50%, -50%); z-index: 1; border: 2px solid #fba002 ; display: flex; justify-content: center; align-items: center;"><svg width="64px" height="64px" viewBox="-29.52 -29.52 223.04 223.04" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#fba002" transform="matrix(1, 0, 0, 1, 0, 0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M19.2329 89.0831C17.3341 89.4211 15.7432 89.7559 14.1371 89.9817C7.06966 90.976 1.51901 86.5687 0.48068 79.5288C-1.0289 69.307 6.73229 58.1139 14.141 55.0389C16.6482 53.9986 19.5794 53.9795 23.0364 53.3665C32.2494 32.1615 49.7618 21.7934 73.5423 20.3488C73.8921 16.4462 74.238 12.5935 74.6022 8.54059C73.5751 8.11988 72.3431 7.95977 71.6796 7.26077C70.7134 6.24344 69.5996 4.84016 69.5957 3.59771C69.5918 2.53116 70.9221 0.709891 71.8974 0.535306C74.597 0.0535535 77.542 -0.276629 80.1608 0.325233C83.5048 1.0938 83.9852 3.75262 81.8548 6.48561C81.4171 6.9389 81.1341 7.51899 81.0462 8.14288C81.224 11.6156 81.5273 15.081 81.7616 18.179C88.0211 18.7375 94.0055 19.0381 99.9211 19.8421C119.273 22.472 132.088 33.3508 139.077 51.3896C139.194 51.6909 139.333 51.9849 139.478 52.2744C139.549 52.3747 139.633 52.4656 139.727 52.5448C142.943 52.5448 146.247 52.1103 149.393 52.6347C156.138 53.7583 161.178 57.4004 162.853 64.3477C164.528 71.2951 161.862 77.0616 156.759 81.6435C151.742 86.1493 145.621 87.389 138.993 86.5404C138.746 86.7453 138.532 86.987 138.359 87.2571C130.949 104.691 117.203 114.915 99.7662 120.658C84.6227 125.684 68.3154 126.026 52.9746 121.639C36.0424 116.958 23.8017 107.182 19.2329 89.0831ZM74.3653 116.033C77.9548 115.728 81.5686 115.59 85.1292 115.09C99.4118 113.083 112.05 107.628 121.744 96.6153C138.759 77.2881 134.524 42.1123 104.846 32.3558C93.8566 28.746 82.3857 26.5243 70.7233 27.2725C57.6687 28.1106 46.2832 33.0968 37.8617 43.4256C30.0513 53.0022 26.6062 64.3694 26.3233 76.5471C25.9125 94.2223 34.5276 106.232 51.1808 112.095C58.6448 114.649 66.4731 115.979 74.362 116.032L74.3653 116.033ZM20.0205 60.3756C19.7421 60.3376 19.4597 60.3412 19.1824 60.3861C12.7641 62.2757 6.45466 73.2929 8.09026 79.6823C8.58579 81.6199 9.81316 82.7712 11.7592 82.8092C13.8765 82.8512 16.0005 82.5894 17.5501 82.4949C18.4092 74.7881 19.2099 67.6156 20.0185 60.3742L20.0205 60.3756ZM141.736 77.21C145.278 77.15 148.678 75.8064 151.305 73.4289C154.874 70.1905 155.296 65.2817 152.224 62.4522C149.242 59.7061 145.667 58.9152 141.736 59.7146V77.21Z" fill="#fba002"></path> <path d="M84.8075 82.0252C86.4018 82.3193 88.1725 82.2825 89.5331 83.0097C90.1516 83.3495 90.6946 83.8115 91.129 84.3676C91.5634 84.9238 91.8802 85.5624 92.06 86.2448C92.3344 88.1095 90.7172 89.0671 88.9411 89.2994C88.0814 89.4143 87.2076 89.3635 86.367 89.1498C84.8505 88.6937 83.2428 88.6309 81.6954 88.9674C80.148 89.304 78.7116 90.0287 77.5215 91.0734C76.1714 92.182 74.5896 93.0209 73.233 91.3781C72.0319 89.9236 72.5832 88.2348 73.7817 86.9346C75.1549 85.3673 76.8518 84.1166 78.7554 83.269C80.659 82.4214 82.7239 81.9971 84.8075 82.0252Z" fill="#fba002"></path> <path d="M57.7186 52.5112C61.4295 52.6392 63.7503 55.2876 63.5495 59.1645C63.3893 62.2533 60.9084 64.7434 58.1203 64.6154C54.9698 64.4703 52.4724 61.3206 52.607 57.6582C52.7442 53.9453 54.2853 52.3924 57.7186 52.5112Z" fill="#fba002"></path> <path d="M93.575 57.3327C93.5684 54.2361 94.7564 52.8328 97.4244 52.7856C100.873 52.7245 103.039 54.689 102.96 57.8066C102.891 60.4916 100.78 62.7678 98.3 62.8282C95.4672 62.8971 93.5822 60.7024 93.575 57.3327Z" fill="#fba002"></path> </g></svg></div>
+
+
+
+<div class='chat' style="width: 50vw; height: 75vh; background-color: #252d24; position: fixed; top: 50%; 
+left: 50%; transform: translate(-50%, -50% ); border-radius: 10px; visibility: hidden; box-shadow: 0px 0px 15px 30em rgba(255,225,225,0.2);">
+	
+	<div class="chatarea" style="width: 100% ; height: 90%; background-color: ; border-radius: 10px; position: relative; display: flex; flex-direction: column-reverse;">
+		<div class='chatmessages' style="position: relative; bottom: 0px; max-height: 100%; width: 100%; padding: 10px; overflow: auto; scrollbar-width: none;">
+			<div class='message1'>BOT : Hey, I am your assistant today ask me any query regarding the stocks or any funds on the market, I will be glad to assist you.  </div>
+			<!-- <div class='message2'> Hey, I am your assistant today ask me any query regarding the stocks or any funds on the market, I will be glad to assist you.  </div> -->
+			
+		</div>
+	</div>
+	<div class="messagearea" style="width: 100%; height : 10%; background-color: transparent; border-radius: 10px; display: flex; justify-content: center; align-items: center; ">
+		
+		<input  class="search-bar-chat" type="text" placeholder="Enter Your Message Here" aria-label="Search" style="background-color: rgba(225, 196, 2, 0.2); border: 0px solid white; width: 50vw; margin-left: 105px; color: #fba002 ; height: 40px; border-radius:5px; padding: 5px;">
+		<button class="btn sendmessage" id='button123'  style=" color: #fba002 ;background-color: #252d24, border: 1px solid #FBA002; padding: 0px; margin-right: 100px; margin-left: 5px; "><svg width="40px" height="40px" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#fba002"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6.99811 10.2467L7.43298 11.0077C7.70983 11.4922 7.84825 11.7344 7.84825 12C7.84825 12.2656 7.70983 12.5078 7.43299 12.9923L7.43298 12.9923L6.99811 13.7533C5.75981 15.9203 5.14066 17.0039 5.62348 17.5412C6.1063 18.0785 7.24961 17.5783 9.53623 16.5779L15.8119 13.8323C17.6074 13.0468 18.5051 12.654 18.5051 12C18.5051 11.346 17.6074 10.9532 15.8119 10.1677L9.53624 7.4221C7.24962 6.42171 6.1063 5.92151 5.62348 6.45883C5.14066 6.99615 5.75981 8.07966 6.99811 10.2467Z" stroke="#fba002"></path> </g></svg></button>
+
+	</div>
+
+</div>
+
+<script type="text/javascript">
+
+
+	
+
+	chat = document.querySelector(".chat")
+	chatbot = document.querySelector(".chatbot")
+	send = document.querySelector('#button123')
+	chatmessages = document.querySelector('.chatmessages')
+	textbox = document.querySelector('.search-bar-chat')
+
+	 function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+
+
+
+	send.addEventListener("click",e=>{
+		console.log(chatmessages)
+		chatmessages.innerHTML+=`<div class='message2'>USER : ${textbox.value}</div>`
+		textbox.value=''
+		// <div class='message1'>BOT :  Hey, I am your assistant today ask me any query regarding the stocks or any funds on the market, I will be glad to assist you.  </div>
+		// fetch('http://127.0.0.1:8000/getresponse/',{
+		// 		method : 'post',
+		// 		headers: {
+		// 			''
+		// 			'X-CSRFToken':getCookie("csrftoken"),
+		// 		},
+		// 		body : {'message':textbox.value},
+		// 	}).then(response=>{
+		// 		return response.json()
+		// 	})
+		// 	.then(data=>{
+		// 		console.log(data)
+		// 	})
+
+		fetch("http://127.0.0.1:8000/getresponse/",{
+			method:"POST",
+			headers:{
+				'Content-Type':'application/json',
+				'X-CSRFToken':getCookie("csrftoken"),
+			},
+			body:JSON.stringify({
+				message : "hello world its me"
+			})
+		})
+		.then(response=>response.json())
+		.then(data=>{
+			chatmessages.innerHTML+=`<div class='message1'>BOT : ${data['message']}</div>`
+		})
+
+	})
+
+
+
+	chatbot.addEventListener("click",e=>{
+		if (chat.style.visibility=='visible'){
+			chat.style.visibility='hidden'
+
+		}
+		else{
+
+			chat.style.visibility='visible'
+		}
+	})
+
+	
+</script>

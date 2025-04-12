@@ -1,0 +1,231 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<style type="text/css">
+	th{
+		
+		text-align: center;
+		color : #fba002;
+		padding: 3px;
+		border-bottom: 2px solid #fba002;
+		
+	}
+	td{
+		text-align: center;
+		color : #fba002;
+		padding : 5px;
+		border-bottom: 2px solid rgba(225, 196, 2, 0.3);
+	}
+	td:hover{
+		background-color: rgba(225, 196, 2, 0.3);
+	}
+</style>
+
+<center>
+
+
+<u style="color: #fba002;" ><h1 class='company-symbol' style="color: #fba002">{{symbol}}</h1></u>
+<h4 class='time-date' style="color: rgba(225, 196, 2, 0.9);"></h4>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<div id="matrixplot" style="width: 90%; margin: 20px; background-color: transparent; "></div>
+
+<div style="border: 2px solid #fba002; width: 90%;">
+	<table class="" style=" width: 100%; background-color: #313b2f" >
+	   <thead>
+		    <tr >
+		      <th scope="col">DATE</th>
+		      <th scope="col">OPEN</th>
+		      <th scope="col">HIGH</th>
+		      <th scope="col">LOW</th>
+		      <th scope="col">CLOSE</th>
+		      <th scope="col">VOLUME</th>
+		    </tr>
+	  </thead>
+	  <tbody class='matrix'>
+
+	    <!-- <tr>
+	      <td scope="row">1</td>
+	      <td>Mark</td>
+	      <td>Otto</td>
+	      <td>@mdo</td>
+	      <td>@mdo</td>
+	      <td>@mdo</td>
+	    </tr> -->
+	    
+	  </tbody>
+	</table>
+</div>
+</center>
+
+<script type="text/javascript">
+
+	// function plot(){
+	// 		console.log(days)
+	// 		console.log(value)
+	// 		days.reverse()
+	// 		value.reverse()
+	// 		// const days = ["2024-11-12", "2024-11-13", "2024-11-14"];
+	// 		// const value = [210.34, 209.12, 208.99];
+	// 		// console.log(days)
+	// 		// console.log(value)
+	// 		const trace = {
+	// 		    x: days,
+	// 		    y: value,
+	// 		    mode: 'lines+markers',
+	// 		    type: 'scatter',
+	// 		    name: 'Close Price',
+	// 		    line: {
+	// 		      color: '#fba002',
+	// 		      width: 2
+	// 		    },
+	// 		    marker: {
+	// 		      color: 'orange',  
+	// 		      size: 8
+	// 		    }
+
+	// 		  };
+
+	// 		  const layout = {
+	// 		    title: 'Date vs Value',
+	// 		    xaxis: { title: 'Date', showgrid: true },
+	// 		    yaxis: { title: 'Value', showgrid: true },
+	// 		    plot_bgcolor: '#FFFFFF',  // Chart area background
+	// 		    paper_bgcolor: '#FFFFFF'  // Whole background
+	// 		  };
+
+	// 		  Plotly.newPlot('matrixplot', [trace], layout);
+
+	// }
+	// // const trace1 = {
+	// //     x: [1, 2, 3, 4],
+	// //     y: [2, 4, 6, 8],
+	// //     mode: 'lines+markers',
+	// //     type: 'scatter'
+	// //   };
+
+	// //   const data = [trace1];
+
+	// //   Plotly.newPlot('plot', data);
+
+	// matrix = document.querySelector(".matrix")
+
+	// symbol = 'IBM'
+	// api = "demo"
+	// days = []
+	// value = []
+	
+
+	// fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=${api}`)
+	// .then(response => response.json())
+	// .then(values =>{
+	// 	console.log(values)
+	// 	data = values['Time Series (Daily)']
+	// 	for(let date in data){
+
+	// 		days.push(date)
+	// 		value.push(parseFloat(data[date]['4. close']))
+
+	// 		// graph.push([date,data['Time Series (Daily)'][date]['4. close']])
+	// 		// stats.push([date,data['Time Series (Daily)'][date]['1. open'],data['Time Series (Daily)'][date]['2. high'],data['Time Series (Daily)'][date]['3. low'],data['Time Series (Daily)'][date]['4. close'],data['Time Series (Daily)'][date]['5. volume']])
+	// 		// days.push(date)
+	// 		// value.push(data['Time Series (Daily)']['4. close'])
+	// 		// list1 = [date]
+	// 		// for(let key in data[date]){
+	// 		// 	list1.push(data[date][key])
+	// 		// }
+	// 		// stats.push(list1)
+	// 		matrix.innerHTML+=`
+	// 		<tr>
+	// 	      <td scope="row">${date}</td>
+	// 	      <td>${data[date]['1. open']}</td>
+	// 	      <td>${data[date]['2. high']}</td>
+	// 	      <td>${data[date]['3. low']}</td>
+	// 	      <td>${data[date]['4. close']}</td>
+	// 	      <td>${data[date]['5. volume']}</td>
+	// 	    </tr> 
+	// 		`
+	// 	}
+	// })
+	// console.log(days)
+	// console.log(value)
+	// plot()
+
+	function plot() {
+	  console.log(days);
+	  console.log(value);
+
+
+	  const trace = {
+	    x: days,
+	    y: value,
+	    mode: 'lines+markers',
+	    type: 'scatter',
+	    name: 'Close Price',
+	    line: {
+	      color: '#fba002',
+	      width: 2
+	    },
+	    marker: {
+	      color: 'orange',
+	      size: 6
+	    }
+	  };
+
+	  const layout = {
+	    title: 'Date vs Value',
+	    xaxis: { title: 'Date', showgrid: true },
+	    yaxis: { title: 'Value', showgrid: true },
+	    plot_bgcolor: '#FFFFFF',
+	    paper_bgcolor: '#FFFFFF'
+	  };
+
+	  Plotly.newPlot('matrixplot', [trace], layout);
+	}
+
+	matrix = document.querySelector(".matrix");
+	heading = document.querySelector(".company-symbol");
+	timedate = document.querySelector(".time-date");
+
+	symbol = heading.innerText;
+	api = "demo";
+	days = [];
+	value = [];
+
+	fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=${api}`)
+	  .then(response => response.json())
+	  .then(values => {
+	    console.log(values);
+	    timedate.innerText+=values['Meta Data']['3. Last Refreshed'] + ' ' + values['Meta Data']['5. Time Zone']
+	    data = values['Time Series (Daily)'];
+
+	    for (let date in data) {
+	      days.push(date);
+	      value.push(parseFloat(data[date]['4. close']));
+
+	      matrix.innerHTML += `
+	        <tr>
+	          <td scope="row">${date}</td>
+	          <td>${data[date]['1. open']}</td>
+	          <td>${data[date]['2. high']}</td>
+	          <td>${data[date]['3. low']}</td>
+	          <td>${data[date]['4. close']}</td>
+	          <td>${data[date]['5. volume']}</td>
+	        </tr>`;
+	    }
+
+
+	    plot();
+	  });
+
+
+	
+
+
+	
+	
+</script>
+
+
+{% endblock %}
